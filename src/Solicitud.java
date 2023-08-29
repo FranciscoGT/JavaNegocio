@@ -1,25 +1,51 @@
 import java.util.Date;
 
 public class Solicitud {
-    private int num, total;
+    private int numeroID, total;
     private Date fecha;
-    private String producto;
+    private String productos;
     private Cliente cliente;
 
-    public Solicitud(int num, int total, Date fecha, Cliente cliente, String producto) {
-        this.num = num;
-        this.total = total;
+    public Solicitud() {
+
+    }
+
+    public Solicitud(int numeroID, Date fecha, Cliente cliente) {
+        this.numeroID = numeroID;
         this.fecha = fecha;
         this.cliente = cliente;
-        this.producto = producto;
     }
 
-    public int getNum() {
-        return num;
+    public int getNumeroID() {
+        return numeroID;
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public void setNumeroID(int numeroID) {
+        this.numeroID = numeroID;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getProducto() {
+        return productos;
+    }
+
+    public void setProducto(String producto) {
+        this.productos = producto;
     }
 
     public Cliente getCliente() {
@@ -30,14 +56,6 @@ public class Solicitud {
         this.cliente = cliente;
     }
 
-    public String getProducto() {
-        return producto;
-    }
-
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
-
     // Methods
 
     // Agregar - Detalle - Descuento - ObtenerNum
@@ -46,7 +64,7 @@ public class Solicitud {
         total += nuevo.getPrecio();
 
         // Agregar producto a la lista de productos
-        producto += nuevo.getDescripcion() + " $" + nuevo.getPrecio() + " " + nuevo.getCantidad() + " "
+        productos += nuevo.getDescripcion() + " $" + nuevo.getPrecio() + " " + nuevo.getCantidad() + " "
                 + nuevo.getMedida() + " ;";
 
     }
@@ -57,12 +75,12 @@ public class Solicitud {
         String detalle = "";
 
         detalle += "Detalle del pedido \n";
-        detalle += "ID del pedido: " + this.num + "\n";
+        detalle += "ID del pedido: " + this.numeroID + "\n";
         detalle += "Fecha del pedido: " + this.fecha.toString() + "\n";
         detalle += "Total del pedido: $" + this.total + "\n";
         detalle += "Rut del cliente: " + this.cliente.getRut() + "-" + this.cliente.getDv() + "\n";
         detalle += "Nombre del cliente: " + this.cliente.getNombre() + "\n";
-        detalle += "Lista de productos: " + this.producto;
+        detalle += "Lista de productos: " + this.productos;
 
         return detalle;
     }
@@ -71,6 +89,11 @@ public class Solicitud {
     public void aplicarDescuento(double descuento) {
         double porc = descuento / 100;
         total -= (total * porc);
+    }
+
+    // Obtener Id del pedido
+    public int obtenerID() {
+        return this.numeroID;
     }
 
 }
