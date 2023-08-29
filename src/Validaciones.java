@@ -14,4 +14,15 @@ public class Validaciones {
 
         return false;
     }
+
+    public boolean validarCategoria (String categoria) {
+        if (categoria.equalsIgnoreCase("Fruta") || categoria.equalsIgnoreCase("Verdura"))  {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean validarTelefono(int telefono) {
+        String fono = "" + telefono;
+    }
 }
