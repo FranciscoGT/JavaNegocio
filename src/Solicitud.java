@@ -46,7 +46,8 @@ public class Solicitud {
         total += nuevo.getPrecio();
 
         // Agregar producto a la lista de productos
-        producto += nuevo.getDescripcion() + " $" + nuevo.getPrecio() + " " + nuevo.getCantidad() + " " + nuevo.getMedida() + " ;";
+        producto += nuevo.getDescripcion() + " $" + nuevo.getPrecio() + " " + nuevo.getCantidad() + " "
+                + nuevo.getMedida() + " ;";
 
     }
 
@@ -68,8 +69,8 @@ public class Solicitud {
 
     // Descuento
     public void aplicarDescuento(double descuento) {
-        double porc = descuento/100;
-        total -= (total*porc);
+        double porc = descuento / 100;
+        total -= (total * porc);
     }
 
 }
